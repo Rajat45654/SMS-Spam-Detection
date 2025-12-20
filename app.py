@@ -4,6 +4,16 @@ import string
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+
+import streamlit as st
+
+@st.cache_resource
+def download_nltk():
+    nltk.download('punkt')
+    nltk.download('stopwords')
+    
+download_nltk()
+
 ps=PorterStemmer()
 def transform_text(text):
     text=text.lower()
@@ -40,4 +50,5 @@ if st.button("Predict"):
     if result==1:
         st.header("Spam")
     else:
+
         st.header("Not Spam")
