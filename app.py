@@ -10,6 +10,7 @@ import streamlit as st
 @st.cache_resource
 def download_nltk():
     nltk.download('punkt')
+    nltk.download('punkt_tab')
     nltk.download('stopwords')
     
 download_nltk()
@@ -52,3 +53,4 @@ if st.button("Predict"):
     else:
 
         st.header("Not Spam")
+
